@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python version
       uses: actions/setup-python@v1
       with:
-        python-version: '3.8'
+        python-version: '3.7'
 
     - name: Create and start virtual environment
       run: |
@@ -59,4 +59,4 @@ jobs:
         with:
           app-name: 'omuni'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_3da66f2914cc47c691ef032c6e364647 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_272a612c868c426c84d0f8d1bddd11fe }}
