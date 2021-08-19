@@ -1,7 +1,8 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
+# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - omuni2
+name: Build and deploy Python app to Azure Web App - omuni2
 
 on:
   push:
@@ -11,47 +12,51 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up .NET Core
-      uses: actions/setup-dotnet@v1
+    - name: Set up Python version
+      uses: actions/setup-python@v1
       with:
-        dotnet-version: '3.1.301'
-        include-prerelease: true
+        python-version: '3.8'
 
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+    - name: Create and start virtual environment
+      run: |
+        python -m venv venv
+        source venv/bin/activate
 
-    - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+    - name: Install dependencies
+      run: pip install -r requirements.txt
 
-    - name: Upload artifact for deployment job
+    # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+
+    - name: Upload artifact for deployment jobs
       uses: actions/upload-artifact@v2
       with:
-        name: .net-app
-        path: ${{env.DOTNET_ROOT}}/myapp
+        name: python-app
+        path: |
+          .
+          !venv/
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v2
-      with:
-        name: .net-app
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: python-app
+          path: .
 
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'omuni2'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0527888e94774257af5a47fd757a08ac }}
-        package: .
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'omuni2'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_7c06f448b95546a4b0c484b409fbc6e1 }}
