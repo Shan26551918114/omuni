@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("新潟人工知能研究室")
+st.title("新潟人工知能研究所")
 st.write("""オムニ株式会社""")
 
 #number = st.slider("pick a number", 0 , 100)
