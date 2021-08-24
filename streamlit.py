@@ -48,7 +48,7 @@ bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
 drawing_mode = st.sidebar.selectbox(
     "Drawing tool:", ("freedraw", "line", "rect", "circle", "transform")
 )
-realtime_update = st.sidebar.checkbox("Update in realtime", True)
+realtime_update = st.sidebar.checkbox("Update in realtime", False)
 
 # Create a canvas component
 canvas_result = st_canvas(
