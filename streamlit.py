@@ -37,7 +37,7 @@ import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 
 # Specify canvas parameters in application
-stroke_width = st.sidebar.slider("Stroke width: ", 1, 25, 3)
+stroke_width = st.sidebar.slider("Stroke width: ", 1, 16, 3)
 stroke_color = st.sidebar.color_picker("Stroke color hex: ")
 #bg_color = st.sidebar.color_picker("Background color hex: ", "#eee")
 bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
@@ -55,7 +55,7 @@ canvas_result = st_canvas(
     
     background_image=Image.open(bg_image) if bg_image else None,
     update_streamlit=realtime_update,
-    height=600,
+    height=400,
     width=600,
     drawing_mode=drawing_mode,
     key="canvas",
