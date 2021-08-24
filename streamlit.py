@@ -4,6 +4,10 @@ import pandas as pd
 st.title("新潟人工知能研究所")
 st.write("""オムニ株式会社""")
 
+
+st.date_input('Date input')
+st.time_input('Time entry')
+
 #number = st.slider("pick a number", 0 , 100)
 
 #file = st.file_uploader("pick a file")
