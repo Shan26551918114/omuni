@@ -35,8 +35,8 @@ canvas_result = st_canvas(
     stroke_width=stroke_width,
     stroke_color=stroke_color,    
     background_image=Image.open(bg_image) if bg_image else None,
-    height=600,
-    width=400,
+    height=400,
+    width=600,
     drawing_mode=drawing_mode,
     key="canvas",
 )
