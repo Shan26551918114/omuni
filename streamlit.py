@@ -13,10 +13,7 @@ import numpy as np
 import streamlit as st
 
 
-def load_image(img):
-    im = Image.open(img)
-    image = np.array(im)
-    return image
+
 
 
 
