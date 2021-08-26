@@ -8,6 +8,9 @@ st.write("""オムニ株式会社""")
 
 #file = st.file_uploader("pick a file")
 
+from PIL import Image
+import numpy as np
+
 
 
 
