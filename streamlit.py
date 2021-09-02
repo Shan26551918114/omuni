@@ -33,7 +33,7 @@ body {
 </head>
 <body>
 <h2>新潟人工知能研究所</h2>
-
+<p>OMUNI</p>
 
 <div class="pill-nav">
   <a href="#home">Single Image</a>
