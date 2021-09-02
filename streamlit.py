@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import streamlit.components.v1 as components
 
+st.title("新潟人工知能研究所")
+st.write("""オムニ株式会社""")
+
 components.html("""<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,8 +35,6 @@ body {
 </style>
 </head>
 <body>
-<h2>新潟人工知能研究所</h2>
-
 
 <div class="pill-nav">
   <a href="#home">Single Image</a>
@@ -48,8 +49,6 @@ body {
 
 """)
 
-st.title("新潟人工知能研究所")
-st.write("""オムニ株式会社""")
 
 from PIL import Image
 import numpy as np
