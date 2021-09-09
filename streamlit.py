@@ -25,7 +25,7 @@ def main():
         stroke_width = st.sidebar.slider("Stroke width", 1, 16, 3)
         stroke_color = st.sidebar.color_picker("Stroke color hex: ")
         bg_image = st.sidebar.file_uploader("Background image:", type=["png", "jpg"])
-        drawing_mode = st.sidebar.selectbox("Drawing tool:", ("freedraw", "line", "rect", "circle", "transform"))
+        drawing_mode = st.sidebar.selectbox("Drawing tool:", ("freedraw", "line", "rect", "transform"))
         canvas_result = st_canvas(
             fill_color="rgba(255, 165, 0, 0.3)",
             stroke_width=stroke_width,
