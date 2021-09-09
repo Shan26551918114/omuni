@@ -19,10 +19,7 @@ def main():
     if choice == 'Detection':
         st.text("Detection")
         uploaded_file1 = st.file_uploader("Choose a file")
-        img_target=Image.open(uploaded_file1)
-        uploaded_file2 = st.file_uploader("Choose a file")
-        img_target=Image.open(uploaded_file2)
-        st.image(img_target)     
+   
     if choice == 'Paint':
         st.text("Paint")
         stroke_width = st.sidebar.slider("Stroke width", 1, 16, 3)
