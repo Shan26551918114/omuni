@@ -19,6 +19,7 @@ def main():
     if choice == 'Detection':
         st.text("Detection")
         uploaded_file1 = st.file_uploader("Choose a file")
+        st.image(uploaded_file1)
    
     if choice == 'Paint':
         st.text("Paint")
