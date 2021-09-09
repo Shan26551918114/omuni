@@ -10,7 +10,7 @@ def main():
     """Detection"""
     
     st.title("新潟人工知能研究所")
-    st.subheader("OMUNI APP")
+    st.subheader("OMNI APP")
     
     activities = ["Detection", "Paint", "About"]
     choice = st.sidebar.selectbox("Select Activity", activities)
